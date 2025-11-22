@@ -1,0 +1,1 @@
+- Configurations of several lib (Tailwind, graphql-client, tanstackQuery) - (https://github.com/Yohesky/graphql-react/pull/1)
