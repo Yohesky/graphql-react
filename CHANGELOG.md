@@ -1,3 +1,5 @@
+- Integrate character service and UI - (https://github.com/Yohesky/graphql-react/pull/4)
+
 - Integrate episode service and UI - (https://github.com/Yohesky/graphql-react/pull/3)
 
 - Init layout views/components - (https://github.com/Yohesky/graphql-react/pull/2)

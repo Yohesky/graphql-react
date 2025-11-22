@@ -17,6 +17,21 @@ export const episodes = gql`
   }
 `;
 
+export const characters = gql`
+  query {
+    characters(page: 1) {
+      results {
+        id
+        name
+        image
+        species
+        status
+      }
+    }
+  }
+`;
+
 export const queryDictionary = {
   ["episodes-query"]: episodes,
+  ["characters-query"]: characters,
 };

@@ -1,8 +1,5 @@
-import { Card } from "../../shared/components/Card";
 import { HeaderTitle } from "../../shared/components/HeaderTitle";
-import { Description } from "./components/Description";
 import { EpisodesList } from "./components/EpisodesList";
-import { Title } from "./components/Title";
 import { useEpisodes } from "./hooks/useEpisodes";
 
 export const View = () => {
