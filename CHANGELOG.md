@@ -1,5 +1,7 @@
 - Add default route - (https://github.com/Yohesky/graphql-react/pull/7)
 
+- Removing not used vars - (https://github.com/Yohesky/graphql-react/pull/5)
+
 - Integrate character service and UI - (https://github.com/Yohesky/graphql-react/pull/4)
 
 - Integrate episode service and UI - (https://github.com/Yohesky/graphql-react/pull/3)

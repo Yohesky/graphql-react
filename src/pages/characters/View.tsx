@@ -3,7 +3,7 @@ import { CharactersList } from "./components/CharactersList";
 import { useCharacters } from "./hooks/useCharacters";
 
 export const View = () => {
-  const { data, isLoading, isError, error, isFetching } = useCharacters();
+  const { data } = useCharacters();
 
   return (
     <div className="flex flex-col col-span-full">
