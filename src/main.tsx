@@ -1,8 +1,11 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { TanStackProvider } from "./pluggins/TanStackQueryProvider";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <h1>Hello world</h1>
-  </StrictMode>
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <TanStackProvider>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    </TanStackProvider>
+  </React.StrictMode>
 );
