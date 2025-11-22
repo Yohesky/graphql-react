@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 import { Layout } from "../shared/components/Layout";
 import { View as EpisodesView } from "../pages/episodes/View";
 import { View as CharacterView } from "../pages/characters/View";
@@ -24,6 +24,8 @@ export const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route index element={<Navigate to="characters" replace />} />
+
         {routes.map((route) => (
           <Route path={route.path} element={route.element} />
         ))}
