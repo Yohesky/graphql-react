@@ -1,3 +1,6 @@
+import type { ApiResponse } from "../../../shared/interfaces/ApiResponse";
+import type { Character } from "../../../shared/interfaces/Character";
+
 export interface Episode {
   id: string;
   name: string;
@@ -5,19 +8,8 @@ export interface Episode {
   characters: Character[];
 }
 
-export interface Character {
-  id: string;
-  name: string;
-  image: string;
-}
-
-export interface EpisodesResponse {
-  episodes: {
-    results: Episode[];
-  };
-}
+export type EpisodesResponse = ApiResponse<"episodes", Episode>;
 
 export interface EpisodesList extends Omit<Episode, "episode"> {
   description: string;
 }
-
