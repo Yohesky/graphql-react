@@ -9,14 +9,14 @@ interface Props {
 
 export const Card = ({ image, children, extraChildren }: Props) => {
   return (
-    <div className="flex justify-between gap-x-2 rounded-xl h-25 bg-[#151c23]">
+    <div className="flex  gap-x-2 rounded-xl h-25 bg-[#151c23]">
       <img
         width="150"
         className="aspect-4/5 object-fit rounded-tl-xl rounded-bl-xl"
         src={image}
         alt=""
       />
-      <div className="flex flex-col gap-2 justify-center">
+      <div className="flex flex-col gap-2 justify-center flex-1">
         {children}
         {extraChildren}
       </div>

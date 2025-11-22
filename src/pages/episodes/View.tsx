@@ -1,24 +1,18 @@
 import { Card } from "../../shared/components/Card";
 import { HeaderTitle } from "../../shared/components/HeaderTitle";
 import { Description } from "./components/Description";
+import { EpisodesList } from "./components/EpisodesList";
 import { Title } from "./components/Title";
+import { useEpisodes } from "./hooks/useEpisodes";
 
 export const View = () => {
+  const { data, isLoading, isError, error, isFetching } = useEpisodes();
+
   return (
     <div className="flex flex-col gap-y-2 col-span-full">
       <HeaderTitle label="Episodes" />
-      {Array.from({ length: 10 }).map((_, index) => (
-        <Card
-          href="#"
-          key={index}
-          image="https://i.pinimg.com/736x/c4/f7/1c/c4f71c964d9f8b855670b311af615c70.jpg"
-          extraChildren={
-            <Description description={`Description for Episode - ${index}`} />
-          }
-        >
-          <Title title={`Episode - ${index}`} />
-        </Card>
-      ))}
+
+      <EpisodesList episodes={data || []} />
     </div>
   );
 };
