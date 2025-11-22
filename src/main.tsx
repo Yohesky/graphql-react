@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router";
 import { TanStackProvider } from "./pluggins/TanStackQueryProvider";
+import { Router } from "./router/Router";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <TanStackProvider>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </TanStackProvider>
+    <BrowserRouter>
+      <TanStackProvider>
+        <Router />
+      </TanStackProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
