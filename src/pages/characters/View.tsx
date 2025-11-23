@@ -7,7 +7,7 @@ import { useInfiniteScroll } from "../../shared/hooks/useInfiniteScroll";
 import { NavStatus } from "../episodes/components/NavStatus";
 import { useParams } from "react-router";
 import { SHOW_ALERT_EVENT } from "../../constants/constants";
-import { SkeletonContainer } from "../../shared/components/Skeleton/SkeletonContainer";
+import { SkeletonContainer } from "../../shared/components/Skeleton";
 
 export const View = () => {
   const { status = "all" } = useParams();

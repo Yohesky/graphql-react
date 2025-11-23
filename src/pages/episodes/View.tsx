@@ -1,6 +1,6 @@
 import { Button } from "../../shared/components/Button";
 import { HeaderTitle } from "../../shared/components/HeaderTitle";
-import { SkeletonContainer } from "../../shared/components/Skeleton/SkeletonContainer";
+import { SkeletonContainer } from "../../shared/components/Skeleton";
 import { ViewHOC } from "../../shared/components/ViewHOC";
 import { useInfiniteScroll } from "../../shared/hooks/useInfiniteScroll";
 import { EpisodesList } from "./components/EpisodesList";

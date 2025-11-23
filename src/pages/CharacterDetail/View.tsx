@@ -5,7 +5,7 @@ import { CardDetails } from "./components/CardDetails/CardDetails";
 import { InfoItem } from "./components/CardDetails/InfoItem";
 import { ArrowLeft } from "../../shared/components/icons/ArrowLeft";
 import { AlertContainer } from "../../shared/components/Alert";
-import { SkeletonContainer } from "../../shared/components/Skeleton/SkeletonContainer";
+import { SkeletonContainer } from "../../shared/components/Skeleton";
 
 export const View = () => {
   const { id } = useParams();
