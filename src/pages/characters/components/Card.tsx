@@ -22,7 +22,7 @@ export const Card = ({
       </div>
       <div className="flex gap-2 justify-center">{children}</div>
       <div className="flex gap-2 justify-center">{status}</div>
-      <div className="flex gap-2 justify-center">{actions}</div>
+      <div className="flex gap-2 justify-center pb-5">{actions}</div>
     </div>
   );
 };

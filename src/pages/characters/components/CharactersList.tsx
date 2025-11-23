@@ -15,7 +15,7 @@ export const CharactersList = ({ characters }: Props) => {
         <Card
           key={index}
           image={character.image}
-          className="col-span-3 h-fit"
+          className="col-span-3 md:col-span-1 h-fit"
           actions={<Actions action="View Profile" id={character.id} />}
           status={<Status status={character.status} />}
         >

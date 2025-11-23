@@ -5,11 +5,12 @@ interface Props {
   extraChildren: React.ReactNode;
   image: string;
   href: string;
+  className?: string;
 }
 
-export const Card = ({ image, children, extraChildren }: Props) => {
+export const Card = ({ image, children, extraChildren, className = "" }: Props) => {
   return (
-    <div className="flex  gap-x-2 rounded-xl h-25 bg-[#151c23]">
+    <div className={`flex gap-x-2 rounded-xl h-25 bg-[#151c23] ${className}`}>
       <img
         width="150"
         className="aspect-4/5 object-fit rounded-tl-xl rounded-bl-xl"

@@ -12,7 +12,11 @@ export const Button = ({
   callback,
 }: ButtonProps) => {
   return (
-    <button disabled={status} className={`btn ${className}`} onClick={callback}>
+    <button
+      disabled={status}
+      className={`btn w-full md:w-1/3 mx-auto mt-4 mb-8 ${className}`}
+      onClick={callback}
+    >
       {label}
     </button>
   );
