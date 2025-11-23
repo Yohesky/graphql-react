@@ -1,3 +1,5 @@
+- Fix route details issue - (https://github.com/Yohesky/graphql-react/pull/12)
+
 - Add status nav - (https://github.com/Yohesky/graphql-react/pull/11)
 
 - Add infinite scroll with hooks refactor - (https://github.com/Yohesky/graphql-react/pull/10)
