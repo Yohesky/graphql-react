@@ -1,12 +1,5 @@
 import type { ApiResponse } from "../../../shared/interfaces/ApiResponse";
-import type { Character } from "../../../shared/interfaces/Character";
-
-export interface Episode {
-  id: string;
-  name: string;
-  episode: string;
-  characters: Character[];
-}
+import type { Episode } from "../../../shared/interfaces/Episode";
 
 export type EpisodesResponse = ApiResponse<"episodes", Episode>;
 

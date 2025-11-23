@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router";
 import { Layout } from "../shared/components/Layout";
 import { View as EpisodesView } from "../pages/episodes/View";
 import { View as CharacterView } from "../pages/characters/View";
+import { View as CharacterDetailView } from "../pages/CharacterDetail/View";
 
 interface Route {
   path: string;
@@ -13,6 +14,10 @@ const routes: Route[] = [
   {
     path: "episodes",
     element: <EpisodesView />,
+  },
+  {
+    path: "characters",
+    element: <CharacterView />,
   },
   {
     path: "characters",
@@ -29,6 +34,9 @@ export const Router = () => {
         {routes.map((route) => (
           <Route path={route.path} element={route.element} />
         ))}
+      </Route>
+      <Route>
+        <Route path="characters/:id" element={<CharacterDetailView />} />
       </Route>
     </Routes>
   );

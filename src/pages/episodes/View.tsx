@@ -7,7 +7,7 @@ export const View = () => {
 
   return (
     <div className="flex flex-col gap-y-2 col-span-full">
-      <HeaderTitle label="Episodes" />
+      <HeaderTitle label="Episodes" className="pb-2" />
 
       <EpisodesList episodes={data} />
     </div>

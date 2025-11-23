@@ -31,7 +31,31 @@ export const characters = gql`
   }
 `;
 
+export const characterById = gql`
+  query ($id: ID!) {
+    character(id: $id) {
+      id
+      name
+      image
+      species
+      status
+      origin {
+        name
+        dimension
+      }
+      episode {
+        name
+      }
+      location {
+        name
+        dimension
+      }
+    }
+  }
+`;
+
 export const queryDictionary = {
   ["episodes-query"]: episodes,
   ["characters-query"]: characters,
+  ["characterById-query"]: characterById,
 };

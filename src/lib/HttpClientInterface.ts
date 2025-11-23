@@ -1,3 +1,7 @@
 export interface HttpClientInterface {
-  get<T>(url: string, headers?: Record<string, string>): Promise<T>;
+  get<T>(
+    url: string,
+    params?: Record<string, string>,
+    headers?: Record<string, string>
+  ): Promise<T>;
 }
