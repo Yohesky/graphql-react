@@ -1,3 +1,5 @@
+- Add status nav - (https://github.com/Yohesky/graphql-react/pull/11)
+
 - Add infinite scroll with hooks refactor - (https://github.com/Yohesky/graphql-react/pull/10)
 
 - Solve imports - (https://github.com/Yohesky/graphql-react/pull/9)

@@ -21,8 +21,8 @@ export const episodes = gql`
 `;
 
 export const characters = gql`
-  query ($page: Int) {
-    characters(page: $page) {
+  query ($page: Int, $status: String) {
+    characters(page: $page, filter: { status: $status }) {
       results {
         id
         name

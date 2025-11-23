@@ -16,11 +16,7 @@ const routes: Route[] = [
     element: <EpisodesView />,
   },
   {
-    path: "characters",
-    element: <CharacterView />,
-  },
-  {
-    path: "characters",
+    path: "characters/:status",
     element: <CharacterView />,
   },
 ];
@@ -29,7 +25,7 @@ export const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="characters" replace />} />
+        <Route index element={<Navigate to="characters/all" replace />} />
 
         {routes.map((route) => (
           <Route path={route.path} element={route.element} />

@@ -7,6 +7,7 @@ interface UseConfigProps {
   initialPageParam: number;
   mapper: Function;
   getNextPageParam: Function;
+  status?: string;
 }
 
 export const useInfiniteScroll = ({
@@ -16,12 +17,13 @@ export const useInfiniteScroll = ({
   initialPageParam,
   getNextPageParam,
   mapper,
+  status,
 }: UseConfigProps) => {
   const { isLoading, isError, error, data, isFetching, fetchNextPage } =
     useInfiniteQuery({
-      queryKey,
+      queryKey: [...queryKey, status],
       queryFn: ({ pageParam = 1 }) => {
-        return queryFn({ pageParam });
+        return queryFn({ pageParam, status });
       },
       staleTime,
       initialPageParam,
