@@ -8,10 +8,21 @@ const httpClient = new HttpClient(queryClient);
 
 export const baseConfig = {
   queryKey: ["characters"],
-  queryFn: ({ pageParam = 1 }) => {
-    return httpClient.get<CharactersResponse>("characters-query", {
+  queryFn: ({
+    pageParam = 1,
+    status,
+  }: {
+    pageParam: number;
+    status: string;
+  }) => {
+    const params = {
       page: Number(pageParam),
-    });
+    };
+
+    if (status !== "all") {
+      Object.assign(params, { status });
+    }
+    return httpClient.get<CharactersResponse>("characters-query", params);
   },
   staleTime: 1000 * 60 * 5,
   initialPageParam: 1,

@@ -4,13 +4,26 @@ import { CharactersList } from "./components/CharactersList";
 import { ViewHOC } from "../../shared/components/ViewHOC";
 import { baseConfig } from "./config/baseConfig";
 import { useInfiniteScroll } from "../../shared/hooks/useInfiniteScroll";
+import { NavStatus } from "../episodes/components/NavStatus";
+import { useParams } from "react-router";
 
 export const View = () => {
-  const { data, isFetching, fetchNextPage } = useInfiniteScroll(baseConfig);
+  const { status = "all" } = useParams();
+
+  const { data, isFetching, fetchNextPage } = useInfiniteScroll({
+    ...baseConfig,
+    status,
+  });
   const hasData = data && data.length > 0;
+
   return (
     <ViewHOC
-      header={<HeaderTitle label="Characters" className="pb-2" />}
+      header={
+        <>
+          <NavStatus />
+          <HeaderTitle label="Characters" className="pb-2" />
+        </>
+      }
       list={<CharactersList characters={data || []} />}
       actions={
         hasData && (

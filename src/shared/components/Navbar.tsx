@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router";
 
-const NAV_ITEMS = ["Characters", "Episodes"] as const;
+const NAV_ITEMS = ["Characters/all", "Episodes"] as const;
 export const Navbar = () => {
-  const [active, setActive] = useState("Characters");
+  const [active, setActive] = useState("Characters/all");
 
   return (
     <nav className="w-full ">
