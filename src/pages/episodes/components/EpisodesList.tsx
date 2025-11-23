@@ -9,14 +9,19 @@ interface Props {
 }
 
 export const EpisodesList = ({ episodes }: Props) => {
-  return episodes.map((episode, index) => (
-    <Card
-      href="#"
-      key={index}
-      image={episode.characters[random0to4()]?.image}
-      extraChildren={<Description description={episode.description} />}
-    >
-      <Title title={episode.name} />
-    </Card>
-  ));
+  return (
+    <div className="grid grid-cols-6 gap-4 row-auto auto-rows-auto">
+      {episodes.map((episode, index) => (
+        <Card
+          className="col-span-full md:col-span-2 "
+          href="#"
+          key={index}
+          image={episode.characters[random0to4()]?.image}
+          extraChildren={<Description description={episode.description} />}
+        >
+          <Title title={episode.name} />
+        </Card>
+      ))}
+    </div>
+  );
 };

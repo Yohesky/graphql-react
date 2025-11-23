@@ -23,7 +23,6 @@ export const View = () => {
             status={isFetching}
             callback={() => fetchNextPage()}
             label={isFetching ? "Loading..." : "Load More"}
-            className="w-full"
           />
         )
       }
