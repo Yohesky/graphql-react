@@ -1,3 +1,5 @@
+- Add skeletons - (https://github.com/Yohesky/graphql-react/pull/17)
+
 - Add handle errors with snackbar - (https://github.com/Yohesky/graphql-react/pull/16)
 
 - Improve image for desktop - (https://github.com/Yohesky/graphql-react/pull/15)
