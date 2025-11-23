@@ -1,15 +1,27 @@
 import { HeaderTitle } from "../../shared/components/HeaderTitle";
+import { Button } from "../../shared/components/Button";
 import { CharactersList } from "./components/CharactersList";
-import { useCharacters } from "./hooks/useCharacters";
+import { ViewHOC } from "../../shared/components/ViewHOC";
+import { baseConfig } from "./config/baseConfig";
+import { useInfiniteScroll } from "../../shared/hooks/useInfiniteScroll";
 
 export const View = () => {
-  const { data } = useCharacters();
-
+  const { data, isFetching, fetchNextPage } = useInfiniteScroll(baseConfig);
+  const hasData = data && data.length > 0;
   return (
-    <div className="flex flex-col col-span-full">
-      <HeaderTitle label="Characters" className="pb-2" />
-
-      <CharactersList characters={data?.characters.results || []} />
-    </div>
+    <ViewHOC
+      header={<HeaderTitle label="Characters" className="pb-2" />}
+      list={<CharactersList characters={data || []} />}
+      actions={
+        hasData && (
+          <Button
+            status={isFetching}
+            callback={() => fetchNextPage()}
+            label={isFetching ? "Loading..." : "Load More"}
+            className="w-full"
+          />
+        )
+      }
+    />
   );
 };

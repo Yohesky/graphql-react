@@ -5,8 +5,8 @@ export class HttpClient {
 
   get<T>(
     url: string,
-    params?: Record<string, string>,
-    headers?: Record<string, string>
+    params?: Record<string, unknown>,
+    headers?: Record<string, unknown>
   ): Promise<T> {
     return this.httpClient.get<T>(url, params, headers);
   }
