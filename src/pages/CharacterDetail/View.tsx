@@ -5,10 +5,11 @@ import { CardDetails } from "./components/CardDetails/CardDetails";
 import { InfoItem } from "./components/CardDetails/InfoItem";
 import { ArrowLeft } from "../../shared/components/icons/ArrowLeft";
 import { AlertContainer } from "../../shared/components/Alert";
+import { SkeletonContainer } from "../../shared/components/Skeleton";
 
 export const View = () => {
   const { id } = useParams();
-  const { data, refetch } = useCharacterDetails(id ?? "1");
+  const { data, isFetching, refetch } = useCharacterDetails(id ?? "1");
 
   const navigate = useNavigate();
 
@@ -28,26 +29,34 @@ export const View = () => {
         <HeaderTitle label="Character Details" className="w-full " />
       </div>
 
-      <CardDetails
-        image={data?.character.image ?? ""}
-        name={data?.character.name ?? ""}
-        status={data?.character.status ?? "Unknown"}
-      >
-        <div className="space-y-4">
-          <InfoItem
-            label="Origen"
-            value={data?.character.origin?.name ?? "Unknown"}
-          />
-          <InfoItem
-            label="Ubicación actual"
-            value={data?.character.location?.name ?? "Unknown"}
-          />
-          <InfoItem
-            label="Apariciones en episodios"
-            value={`${data?.character.episode.length ?? 0}`}
-          />
-        </div>
-      </CardDetails>
+      {isFetching ? (
+        <SkeletonContainer
+          type="detail"
+          number={1}
+          className="col-span-full items-center mt-50"
+        />
+      ) : (
+        <CardDetails
+          image={data?.character.image ?? ""}
+          name={data?.character.name ?? ""}
+          status={data?.character.status ?? "Unknown"}
+        >
+          <div className="space-y-4">
+            <InfoItem
+              label="Origen"
+              value={data?.character.origin?.name ?? "Unknown"}
+            />
+            <InfoItem
+              label="Ubicación actual"
+              value={data?.character.location?.name ?? "Unknown"}
+            />
+            <InfoItem
+              label="Apariciones en episodios"
+              value={`${data?.character.episode.length ?? 0}`}
+            />
+          </div>
+        </CardDetails>
+      )}
 
       <AlertContainer callback={refetch} message="Something went wrong" />
     </div>

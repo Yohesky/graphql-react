@@ -7,6 +7,7 @@ import { useInfiniteScroll } from "../../shared/hooks/useInfiniteScroll";
 import { NavStatus } from "../episodes/components/NavStatus";
 import { useParams } from "react-router";
 import { SHOW_ALERT_EVENT } from "../../constants/constants";
+import { SkeletonContainer } from "../../shared/components/Skeleton";
 
 export const View = () => {
   const { status = "all" } = useParams();
@@ -18,7 +19,6 @@ export const View = () => {
     });
   const hasData = data && data.length > 0;
 
-  console.log("🚀 ~ View ~ isError:", isError)
   if (isError) {
     document.dispatchEvent(new Event(SHOW_ALERT_EVENT));
   }
@@ -33,7 +33,17 @@ export const View = () => {
           <HeaderTitle label="Characters" className="pb-2" />
         </>
       }
-      list={<CharactersList characters={data || []} />}
+      list={
+        isFetching ? (
+          <SkeletonContainer
+            className="col-span-3 md:col-span-1 h-fit"
+            type="character"
+            number={6}
+          />
+        ) : (
+          <CharactersList characters={data!} />
+        )
+      }
       actions={
         hasData && (
           <Button
