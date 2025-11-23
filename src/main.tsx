@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router";
-import { TanStackProvider } from "./pluggins/TanStackQueryProvider";
+import { TanStackProvider } from "./plugins/TanStackQueryProvider";
 import { Router } from "./router/Router";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

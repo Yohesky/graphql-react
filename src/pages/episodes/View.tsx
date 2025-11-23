@@ -10,11 +10,14 @@ export const View = () => {
     data = [],
     isFetching,
     fetchNextPage,
+    refetch,
   } = useInfiniteScroll(baseConfig);
   const hasData = data && data.length > 0;
 
   return (
     <ViewHOC
+      callback={refetch}
+      messageError="Something went wrong"
       header={<HeaderTitle label="Episodes" className="pb-2" />}
       list={<EpisodesList episodes={data} />}
       actions={

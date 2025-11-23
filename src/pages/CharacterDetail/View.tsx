@@ -4,10 +4,11 @@ import { useCharacterDetails } from "./hooks/useCharacterDetails";
 import { CardDetails } from "./components/CardDetails/CardDetails";
 import { InfoItem } from "./components/CardDetails/InfoItem";
 import { ArrowLeft } from "../../shared/components/icons/ArrowLeft";
+import { AlertContainer } from "../../shared/components/Alert";
 
 export const View = () => {
   const { id } = useParams();
-  const { data } = useCharacterDetails(id ?? "1");
+  const { data, refetch } = useCharacterDetails(id ?? "1");
 
   const navigate = useNavigate();
 
@@ -47,6 +48,8 @@ export const View = () => {
           />
         </div>
       </CardDetails>
+
+      <AlertContainer callback={refetch} message="Something went wrong" />
     </div>
   );
 };

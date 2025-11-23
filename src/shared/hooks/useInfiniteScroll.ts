@@ -19,17 +19,24 @@ export const useInfiniteScroll = ({
   mapper,
   status,
 }: UseConfigProps) => {
-  const { isLoading, isError, error, data, isFetching, fetchNextPage } =
-    useInfiniteQuery({
-      queryKey: [...queryKey, status],
-      queryFn: ({ pageParam = 1 }) => {
-        return queryFn({ pageParam, status });
-      },
-      staleTime,
-      initialPageParam,
-      getNextPageParam: (data) => getNextPageParam(data),
-      select: (data) => mapper(data),
-    });
+  const {
+    isLoading,
+    isError,
+    error,
+    data,
+    isFetching,
+    refetch,
+    fetchNextPage,
+  } = useInfiniteQuery({
+    queryKey: [...queryKey, status],
+    queryFn: ({ pageParam = 1 }) => {
+      return queryFn({ pageParam, status });
+    },
+    staleTime,
+    initialPageParam,
+    getNextPageParam: (data) => getNextPageParam(data),
+    select: (data) => mapper(data),
+  });
 
   return {
     isLoading,
@@ -38,5 +45,6 @@ export const useInfiniteScroll = ({
     data,
     isFetching,
     fetchNextPage,
+    refetch,
   };
 };
