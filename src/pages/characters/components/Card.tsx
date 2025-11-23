@@ -17,7 +17,7 @@ export const Card = ({
     <div
       className={`flex flex-col gap-y-2 rounded-xl h-25 bg-[#151c23] ${className}`}
     >
-      <div className="p-2">
+      <div className="p-2 md:mx-auto md:p-0.5">
         <img className="object-fit rounded-xl" src={image} alt="" />
       </div>
       <div className="flex gap-2 justify-center">{children}</div>
