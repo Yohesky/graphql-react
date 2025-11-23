@@ -1,3 +1,5 @@
+- Add axios client for demonstration purposes - (https://github.com/Yohesky/graphql-react/pull/13)
+
 - Fix route details issue - (https://github.com/Yohesky/graphql-react/pull/12)
 
 - Add status nav - (https://github.com/Yohesky/graphql-react/pull/11)
