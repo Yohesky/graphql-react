@@ -2,7 +2,6 @@ interface Props {
   children: React.ReactNode;
   actions?: React.ReactNode;
   image: string;
-  href: string;
   className?: string;
   status: React.ReactNode;
 }

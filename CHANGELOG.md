@@ -1,3 +1,5 @@
+- Integrate detail character page - (https://github.com/Yohesky/graphql-react/pull/8)
+
 - Add default route - (https://github.com/Yohesky/graphql-react/pull/7)
 
 - Removing not used vars - (https://github.com/Yohesky/graphql-react/pull/5)

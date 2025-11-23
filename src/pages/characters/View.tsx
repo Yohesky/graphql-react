@@ -7,7 +7,7 @@ export const View = () => {
 
   return (
     <div className="flex flex-col col-span-full">
-      <HeaderTitle label="Characters" />
+      <HeaderTitle label="Characters" className="pb-2" />
 
       <CharactersList characters={data?.characters.results || []} />
     </div>
