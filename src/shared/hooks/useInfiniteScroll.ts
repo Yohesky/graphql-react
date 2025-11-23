@@ -7,7 +7,7 @@ interface UseConfigProps {
   initialPageParam: number;
   mapper: Function;
   getNextPageParam: Function;
-  status: string;
+  status?: string;
 }
 
 export const useInfiniteScroll = ({
