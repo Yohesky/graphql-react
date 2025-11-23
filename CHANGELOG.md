@@ -1,3 +1,5 @@
+- Add unit tests - (https://github.com/Yohesky/graphql-react/pull/19)
+
 - Improve navbar -  (https://github.com/Yohesky/graphql-react/pull/18)
 
 - Add skeletons - (https://github.com/Yohesky/graphql-react/pull/17)

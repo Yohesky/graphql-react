@@ -1,10 +1,8 @@
 import type { InfiniteData } from "@tanstack/react-query";
-import { GraphQLClient } from "../../../lib/clients/graphql/GraphQLClient";
-import { HttpClient } from "../../../lib/HttpClient";
 import type { CharactersResponse } from "../interfaces/Characters";
+import { clientFactory } from "../../../shared/utils/clientFactory";
 
-const queryClient = new GraphQLClient();
-const httpClient = new HttpClient(queryClient);
+const graphClient = clientFactory['graph-client']()
 
 export const baseConfig = {
   queryKey: ["characters"],
@@ -22,7 +20,7 @@ export const baseConfig = {
     if (status !== "all") {
       Object.assign(params, { status });
     }
-    return httpClient.get<CharactersResponse>("characters-query", params);
+    return graphClient.get<CharactersResponse>("characters-query", params);
   },
   staleTime: 1000 * 60 * 5,
   initialPageParam: 1,

@@ -1,26 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
-// import { GraphQLClient } from "../../../lib/clients/graphql/GraphQLClient";
-import { HttpClient } from "../../../lib/HttpClient";
-import { AxiosClient } from "../../../lib/clients/axios/axiosClient";
 import type {
   Character,
   Location,
   Origin,
 } from "../../../shared/interfaces/Character";
-
-// AxiosClient for demonstration purposes
-
-// const queryClient = new GraphQLClient();
+import { clientFactory } from "../../../shared/utils/clientFactory";
 
 //SEGREGATION INTERFACE
 interface CharacterResponseAxios extends Character {
   origin: Origin;
   location: Location;
 }
-const axiosClient = new AxiosClient();
-const httpClient = new HttpClient(axiosClient);
 
 export const useCharacterDetails = (characterId: string) => {
+  const httpClient = clientFactory["axios-client"]();
   const { isLoading, isError, error, data, isFetching, refetch } = useQuery({
     queryKey: ["character", "details", characterId],
     queryFn: () =>
