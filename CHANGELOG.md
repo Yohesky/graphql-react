@@ -1,3 +1,5 @@
+- Add responsive for desktop - (https://github.com/Yohesky/graphql-react/pull/14)
+
 - Add axios client for demonstration purposes - (https://github.com/Yohesky/graphql-react/pull/13)
 
 - Fix route details issue - (https://github.com/Yohesky/graphql-react/pull/12)
