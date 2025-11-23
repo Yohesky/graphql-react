@@ -21,7 +21,7 @@ const axiosClient = new AxiosClient();
 const httpClient = new HttpClient(axiosClient);
 
 export const useCharacterDetails = (characterId: string) => {
-  const { isLoading, isError, error, data, isFetching } = useQuery({
+  const { isLoading, isError, error, data, isFetching, refetch } = useQuery({
     queryKey: ["character", "details", characterId],
     queryFn: () =>
       httpClient.get<CharacterResponseAxios>(`/character/${characterId}`),
@@ -43,5 +43,6 @@ export const useCharacterDetails = (characterId: string) => {
     error,
     data,
     isFetching,
+    refetch,
   };
 };
