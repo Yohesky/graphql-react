@@ -8,7 +8,7 @@ const httpClient = new HttpClient(queryClient);
 
 export const useCharacterDetails = (characterId: string) => {
   const { isLoading, isError, error, data, isFetching } = useQuery({
-    queryKey: ["character", characterId],
+    queryKey: ["character", "details", characterId],
     queryFn: () =>
       httpClient.get<CharacterDetail>("characterById-query", {
         id: characterId,
