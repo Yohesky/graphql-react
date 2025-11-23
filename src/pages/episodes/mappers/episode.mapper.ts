@@ -1,4 +1,4 @@
-import type { Episode } from "../interfaces/Episodes";
+import type { Episode } from "../../../shared/interfaces/Episode";
 
 export const episodeMapper = (episodes: Episode[]) => {
   return episodes.map((episode) => ({

@@ -1,3 +1,5 @@
+- Solve imports - (https://github.com/Yohesky/graphql-react/pull/9)
+
 - Integrate detail character page - (https://github.com/Yohesky/graphql-react/pull/8)
 
 - Add default route - (https://github.com/Yohesky/graphql-react/pull/7)
