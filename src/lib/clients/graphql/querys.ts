@@ -1,8 +1,8 @@
 import { gql } from "graphql-request";
 
 export const episodes = gql`
-  query {
-    episodes(page: 1) {
+  query ($page: Int) {
+    episodes(page: $page) {
       results {
         id
         name
@@ -13,19 +13,25 @@ export const episodes = gql`
           image
         }
       }
+      info {
+        next
+      }
     }
   }
 `;
 
 export const characters = gql`
-  query {
-    characters(page: 1) {
+  query ($page: Int) {
+    characters(page: $page) {
       results {
         id
         name
         image
         species
         status
+      }
+      info {
+        next
       }
     }
   }

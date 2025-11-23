@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
 
-const NAV_ITEMS = ["Characters", "Episodes", "Locations"] as const;
-
+const NAV_ITEMS = ["Characters", "Episodes"] as const;
 export const Navbar = () => {
   const [active, setActive] = useState("Characters");
 
