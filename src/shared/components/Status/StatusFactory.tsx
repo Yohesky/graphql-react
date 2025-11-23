@@ -1,4 +1,4 @@
-import type { Character } from "../../../../shared/interfaces/Character";
+import type { Character } from "../../interfaces/Character";
 
 export const Alive = () => {
   return (
