@@ -32,7 +32,7 @@ export const Router = () => {
         ))}
       </Route>
       <Route>
-        <Route path="characters/:id" element={<CharacterDetailView />} />
+        <Route path="characters/details/:id" element={<CharacterDetailView />} />
       </Route>
     </Routes>
   );
