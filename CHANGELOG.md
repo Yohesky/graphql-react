@@ -1,3 +1,5 @@
+- Add episode detail view - (https://github.com/Yohesky/graphql-react/pull/21)
+
 - Solve issue with skeletons - (https://github.com/Yohesky/graphql-react/pull/20)
 
 - Add unit tests - (https://github.com/Yohesky/graphql-react/pull/19)

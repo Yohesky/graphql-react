@@ -14,7 +14,7 @@ export const EpisodesList = ({ episodes }: Props) => {
       {episodes.map((episode, index) => (
         <Card
           className="col-span-full md:col-span-2 "
-          href="#"
+          href={`/episodes/details/${episode.id}`}
           key={index}
           image={episode.characters[random0to4()]?.image}
           extraChildren={<Description description={episode.description} />}
