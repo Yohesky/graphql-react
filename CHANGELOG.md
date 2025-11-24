@@ -1,3 +1,5 @@
+- Add pattern builder, singleton and prototype  - (https://github.com/Yohesky/graphql-react/pull/22)
+
 - Add episode detail view - (https://github.com/Yohesky/graphql-react/pull/21)
 
 - Solve issue with skeletons - (https://github.com/Yohesky/graphql-react/pull/20)
