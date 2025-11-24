@@ -34,15 +34,16 @@ export const View = () => {
         </>
       }
       list={
-        isFetching ? (
-          <SkeletonContainer
-            className="col-span-3 md:col-span-1 h-fit"
-            type="character"
-            number={6}
-          />
-        ) : (
-          <CharactersList characters={data!} />
-        )
+        <>
+          <CharactersList characters={data ?? []} />
+          {isFetching && (
+            <SkeletonContainer
+              className="col-span-3 md:col-span-1 h-fit"
+              type="character"
+              number={6}
+            />
+          )}
+        </>
       }
       actions={
         hasData && (
