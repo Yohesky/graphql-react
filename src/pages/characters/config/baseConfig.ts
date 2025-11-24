@@ -2,7 +2,7 @@ import type { InfiniteData } from "@tanstack/react-query";
 import type { CharactersResponse } from "../interfaces/Characters";
 import { clientFactory } from "../../../shared/utils/clientFactory";
 
-const graphClient = clientFactory['graph-client']()
+const graphClient = clientFactory["graph-client"];
 
 export const baseConfig = {
   queryKey: ["characters"],

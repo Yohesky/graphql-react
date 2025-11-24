@@ -14,18 +14,16 @@ vi.mock("../../../lib/HttpClient", () => {
   };
 });
 
-import { useCharacterDetails } from "./useCharacterDetails";
+import { useEpisodeDetails } from "./useEpisodeDetails";
 import { useQuery as mockUseQuery } from "@tanstack/react-query";
 import { HttpClient } from "../../../lib/HttpClient";
 
-describe("useCharacterDetails", () => {
-  const characterId = "123";
+describe("useEpisodeDetails", () => {
+  const episodeId = "123";
   const mockGet = vi.fn();
   const mockData = {
-    id: characterId,
+    id: episodeId,
     name: "Rick",
-    origin: { name: "Earth" },
-    location: { name: "Citadel" },
   };
 
   beforeEach(() => {
@@ -50,7 +48,7 @@ describe("useCharacterDetails", () => {
     };
     (mockUseQuery as Mock).mockReturnValue(mockResult);
 
-    const { result } = renderHook(() => useCharacterDetails(characterId));
+    const { result } = renderHook(() => useEpisodeDetails(episodeId));
 
     expect(result.current.isLoading).toBe(false);
     expect(result.current.isError).toBe(false);
@@ -58,7 +56,7 @@ describe("useCharacterDetails", () => {
     expect(result.current.refetch).toBeDefined();
   });
 
-  it("should call httpClient.get with correct characterId", async () => {
+  it("should call httpClient.get with correct episodeId", async () => {
     mockGet.mockResolvedValue({ data: mockData });
 
     (mockUseQuery as Mock).mockImplementation(({ queryFn }) => {
@@ -67,8 +65,8 @@ describe("useCharacterDetails", () => {
     });
 
     await Promise.resolve();
-    renderHook(() => useCharacterDetails(characterId));
+    renderHook(() => useEpisodeDetails(episodeId));
 
-    expect(mockGet).toHaveBeenCalledWith(`/character/${characterId}`);
+    expect(mockGet).toHaveBeenCalledWith(`/episode/${episodeId}`);
   });
 });
