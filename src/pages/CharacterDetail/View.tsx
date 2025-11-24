@@ -7,12 +7,27 @@ import { ArrowLeft } from "../../shared/components/icons/ArrowLeft";
 import { AlertContainer } from "../../shared/components/Alert";
 import { SkeletonContainer } from "../../shared/components/Skeleton";
 import { SHOW_ALERT_EVENT } from "../../constants/constants";
+import { useEffect } from "react";
+import { TrackBuilder } from "../../shared/utils/TrackBuilder";
+const initTracks = new TrackBuilder("detail")
+  .setLocation("colombia")
+  .setTime(Date.now())
+  .setView("character-detail");
 
 export const View = () => {
   const { id } = useParams();
   const { data, isFetching, isError, refetch } = useCharacterDetails(id ?? "1");
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const clonedTracks = initTracks
+      .clone()
+      .setPath(`character/details/${id}`)
+      .build();
+    console.log("🚀 ~ initTracks:", clonedTracks);
+  }, []);
+
   if (isError) {
     document.dispatchEvent(new Event(SHOW_ALERT_EVENT));
   }

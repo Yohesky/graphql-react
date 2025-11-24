@@ -2,7 +2,7 @@ import type { HttpClientInterface } from "../../HttpClientInterface";
 import { graphqlClient } from "./graphqlConfig";
 import { queryDictionary } from "./querys";
 
-export class GraphQLClient implements HttpClientInterface {
+class GraphQLClient implements HttpClientInterface {
   async get<T>(
     url: keyof typeof queryDictionary,
     params?: Record<string, string>
@@ -12,3 +12,5 @@ export class GraphQLClient implements HttpClientInterface {
     return data as T;
   }
 }
+
+export const graphQLClient = new GraphQLClient();

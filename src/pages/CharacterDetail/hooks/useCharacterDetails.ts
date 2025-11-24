@@ -13,11 +13,14 @@ interface CharacterResponseAxios extends Character {
 }
 
 export const useCharacterDetails = (characterId: string) => {
-  const httpClient = clientFactory["axios-client"]();
+  const httpClient = clientFactory["axios-client"];
   const { isLoading, isError, error, data, isFetching, refetch } = useQuery({
     queryKey: ["character", "details", characterId],
-    queryFn: () =>
-      httpClient.get<CharacterResponseAxios>(`/character/${characterId}`),
+    queryFn: () => {
+      return httpClient.get<CharacterResponseAxios>(
+        `/character/${characterId}`
+      );
+    },
     staleTime: 1000 * 60 * 5,
     select: (data) => {
       const newCharacter = {

@@ -1,18 +1,11 @@
-import { AxiosClient } from "../../lib/clients/axios/axiosClient";
-import { GraphQLClient } from "../../lib/clients/graphql/GraphQLClient";
+import { axiosHttpClient } from "../../lib/clients/axios/axiosClient";
+import { graphQLClient } from "../../lib/clients/graphql/GraphQLClient";
 import { HttpClient } from "../../lib/HttpClient";
 
-export function createAxiosClient() {
-  const axios = new AxiosClient();
-  return new HttpClient(axios);
-}
-
-export function createGraphClient() {
-  const graphQL = new GraphQLClient();
-  return new HttpClient(graphQL);
-}
+const axiosClientSingleton = new HttpClient(axiosHttpClient);
+const graphClientSingleton = new HttpClient(graphQLClient);
 
 export const clientFactory = {
-  ["axios-client"]: createAxiosClient,
-  ["graph-client"]: createGraphClient,
+  ["axios-client"]: axiosClientSingleton,
+  ["graph-client"]: graphClientSingleton,
 };
