@@ -6,12 +6,16 @@ import { InfoItem } from "./components/CardDetails/InfoItem";
 import { ArrowLeft } from "../../shared/components/icons/ArrowLeft";
 import { AlertContainer } from "../../shared/components/Alert";
 import { SkeletonContainer } from "../../shared/components/Skeleton";
+import { SHOW_ALERT_EVENT } from "../../constants/constants";
 
 export const View = () => {
   const { id } = useParams();
-  const { data, isFetching, refetch } = useCharacterDetails(id ?? "1");
+  const { data, isFetching, isError, refetch } = useCharacterDetails(id ?? "1");
 
   const navigate = useNavigate();
+  if (isError) {
+    document.dispatchEvent(new Event(SHOW_ALERT_EVENT));
+  }
 
   return (
     <div className="flex flex-col gap-y-2 col-span-full ">

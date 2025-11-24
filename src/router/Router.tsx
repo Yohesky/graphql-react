@@ -4,6 +4,7 @@ import { Layout } from "../shared/components/Layout";
 import { View as EpisodesView } from "../pages/episodes/View";
 import { View as CharacterView } from "../pages/characters/View";
 import { View as CharacterDetailView } from "../pages/CharacterDetail/View";
+import { View as EpisodeDetail } from "../pages/episodeDetail/View";
 
 interface Route {
   path: string;
@@ -32,7 +33,15 @@ export const Router = () => {
         ))}
       </Route>
       <Route>
-        <Route path="characters/details/:id" element={<CharacterDetailView />} />
+        <Route
+          path="characters/details/:id"
+          element={<CharacterDetailView />}
+        />
+
+        <Route
+          path="episodes/details/:id"
+          element={<EpisodeDetail />}
+        />
       </Route>
     </Routes>
   );

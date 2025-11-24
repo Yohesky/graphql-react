@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { ArrowRight } from "./icons/ArrowRight";
 
 interface Props {
@@ -8,7 +9,13 @@ interface Props {
   className?: string;
 }
 
-export const Card = ({ image, children, extraChildren, className = "" }: Props) => {
+export const Card = ({
+  image,
+  children,
+  extraChildren,
+  className = "",
+  href,
+}: Props) => {
   return (
     <div className={`flex gap-x-2 rounded-xl h-25 bg-[#151c23] ${className}`}>
       <img
@@ -21,9 +28,14 @@ export const Card = ({ image, children, extraChildren, className = "" }: Props) 
         {children}
         {extraChildren}
       </div>
-      <div className="flex justify-center items-center text-[#787e82]">
-        <ArrowRight />
-      </div>
+      <Link
+        to={href}
+        className="flex justify-center items-center text-[#787e82]"
+      >
+        <div>
+          <ArrowRight />
+        </div>
+      </Link>
     </div>
   );
 };

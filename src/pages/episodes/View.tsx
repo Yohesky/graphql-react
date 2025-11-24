@@ -1,3 +1,4 @@
+import { SHOW_ALERT_EVENT } from "../../constants/constants";
 import { Button } from "../../shared/components/Button";
 import { HeaderTitle } from "../../shared/components/HeaderTitle";
 import { SkeletonContainer } from "../../shared/components/Skeleton";
@@ -10,10 +11,14 @@ export const View = () => {
   const {
     data = [],
     isFetching,
+    isError,
     fetchNextPage,
     refetch,
   } = useInfiniteScroll(baseConfig);
   const hasData = data && data.length > 0;
+  if (isError) {
+    document.dispatchEvent(new Event(SHOW_ALERT_EVENT));
+  }
 
   return (
     <ViewHOC
