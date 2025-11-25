@@ -1,5 +1,4 @@
 import { Card } from "../../../shared/components/Card";
-import random0to4 from "../../../shared/utils/randomNumber";
 import type { EpisodesList as EpisodesListInterface } from "../interfaces/Episodes";
 import { Description } from "./Description";
 import { Title } from "./Title";
@@ -16,7 +15,7 @@ export const EpisodesList = ({ episodes }: Props) => {
           className="col-span-full md:col-span-2 "
           href={`/episodes/details/${episode.id}`}
           key={index}
-          image={episode.characters[random0to4()]?.image}
+          itemPosition={index + 1}
           extraChildren={<Description description={episode.description} />}
         >
           <Title title={episode.name} />

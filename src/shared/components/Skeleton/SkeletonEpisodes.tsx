@@ -1,9 +1,9 @@
 export const SkeletonEpisodes = ({ className }: { className: string }) => {
   return (
     <div
-      className={`flex flex-col flex-wrap gap-8 animate-pulse ${className}`}
+      className={`flex flex-row gap-2 animate-pulse  ${className}`}
     >
-      <div className="grid bg-gray-300 rounded-lg h-36 w-36 place-items-center">
+      <div className="grid bg-gray-300 rounded-lg h-36 flex-1 place-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -19,11 +19,11 @@ export const SkeletonEpisodes = ({ className }: { className: string }) => {
           ></path>
         </svg>
       </div>
-      <div className="w-max">
-        <div className="block w-56 h-3 mb-4 font-sans text-5xl antialiased font-semibold leading-tight tracking-normal bg-gray-300 rounded-full text-inherit">
+      <div className="w-50">
+        <div className="block w-30 h-3 mb-4 font-sans text-5xl antialiased font-semibold leading-tight tracking-normal bg-gray-300 rounded-full text-inherit">
           &nbsp;
         </div>
-        <div className="block h-2 mb-2 font-sans text-base antialiased font-light leading-relaxed bg-gray-300 rounded-full text-inherit w-72">
+        <div className="block h-2 mb-2 font-sans text-base antialiased font-light leading-relaxed bg-gray-300 rounded-full text-inherit">
           &nbsp;
         </div>
       </div>

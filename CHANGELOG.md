@@ -1,3 +1,5 @@
+- Several refactors (hoc detail, tracking decoupling of hooks, add redirect for routes) - (https://github.com/Yohesky/graphql-react/pull/23)
+
 - Add pattern builder, singleton and prototype  - (https://github.com/Yohesky/graphql-react/pull/22)
 
 - Add episode detail view - (https://github.com/Yohesky/graphql-react/pull/21)

@@ -4,9 +4,10 @@ import { ArrowRight } from "./icons/ArrowRight";
 interface Props {
   children: React.ReactNode;
   extraChildren: React.ReactNode;
-  image: string;
+  image?: string;
   href: string;
   className?: string;
+  itemPosition?: number;
 }
 
 export const Card = ({
@@ -15,15 +16,26 @@ export const Card = ({
   extraChildren,
   className = "",
   href,
+  itemPosition,
 }: Props) => {
   return (
     <div className={`flex gap-x-2 rounded-xl h-25 bg-[#151c23] ${className}`}>
-      <img
-        width="150"
-        className="aspect-4/5 object-fit rounded-tl-xl rounded-bl-xl"
-        src={image}
-        alt=""
-      />
+      {image ? (
+        <>
+          <img
+            width="150"
+            className="aspect-4/5 object-fit rounded-tl-xl rounded-bl-xl"
+            src={image}
+            alt=""
+          />
+        </>
+      ) : (
+        <div className="flex-1 flex justify-center items-center">
+          <h4 className="text-white text-lg font-semibold leading-tight">
+            {itemPosition}
+          </h4>
+        </div>
+      )}
       <div className="flex flex-col gap-2 justify-center flex-1">
         {children}
         {extraChildren}

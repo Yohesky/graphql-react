@@ -36,13 +36,16 @@ export class TrackBuilder {
     return this;
   }
 
-  setAddiniotalProperty(key: string, value: string) {
+  setAdditional(key: string, value: string) {
     this.mainData.data[key] = value;
+    return this;
   }
 
   clone() {
+    const mainDataClone = structuredClone(this.mainData);
+
     const cloned = new TrackBuilder(this.mainData.path);
-    cloned.mainData.data = JSON.parse(JSON.stringify(this.mainData.data));
+    cloned.mainData = mainDataClone;
     return cloned;
   }
 

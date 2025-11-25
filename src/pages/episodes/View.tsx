@@ -1,4 +1,3 @@
-import { SHOW_ALERT_EVENT } from "../../constants/constants";
 import { Button } from "../../shared/components/Button";
 import { HeaderTitle } from "../../shared/components/HeaderTitle";
 import { SkeletonContainer } from "../../shared/components/Skeleton";
@@ -16,12 +15,10 @@ export const View = () => {
     refetch,
   } = useInfiniteScroll(baseConfig);
   const hasData = data && data.length > 0;
-  if (isError) {
-    document.dispatchEvent(new Event(SHOW_ALERT_EVENT));
-  }
 
   return (
     <ViewHOC
+      isError={isError}
       callback={refetch}
       messageError="Something went wrong"
       header={<HeaderTitle label="Episodes" className="pb-2" />}
@@ -30,7 +27,7 @@ export const View = () => {
           <EpisodesList episodes={data} />
           {isFetching && (
             <SkeletonContainer
-              className="col-span-full md:col-span-2 items-start"
+              className="col-span-full md:col-span-2 items-center"
               type="episode"
               number={5}
             />

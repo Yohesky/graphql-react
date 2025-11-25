@@ -1,12 +1,13 @@
+import { SHOW_ALERT_EVENT } from "../../constants/constants";
 import { AlertContainer } from "./Alert";
 
 interface ViewHOCProps {
-  // Define any props that the HOC might need\
   header: React.ReactNode;
   list: React.ReactNode;
   actions?: React.ReactNode;
   callback: () => void;
   messageError: string;
+  isError: boolean;
 }
 
 export const ViewHOC = ({
@@ -15,7 +16,11 @@ export const ViewHOC = ({
   actions,
   callback,
   messageError,
+  isError,
 }: ViewHOCProps) => {
+  if (isError) {
+    document.dispatchEvent(new Event(SHOW_ALERT_EVENT));
+  }
   return (
     <div className="flex flex-col gap-y-5 col-span-full">
       {header}
