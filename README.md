@@ -8,8 +8,8 @@ A modular React 19 project powered by Vite, styled with TailwindCSS, and integra
 
 ### Requirements
 
-- Node.js **v20+**
-- npm **v10+**
+- Node.js **v24+**
+- npm **v11+**
 
 ### Steps
 
