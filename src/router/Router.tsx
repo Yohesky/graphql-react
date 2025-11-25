@@ -29,7 +29,7 @@ export const Router = () => {
         <Route index element={<Navigate to="characters/all" replace />} />
 
         {routes.map((route) => (
-          <Route path={route.path} element={route.element} />
+          <Route key={route.path} path={route.path} element={route.element} />
         ))}
       </Route>
       <Route>
@@ -38,10 +38,7 @@ export const Router = () => {
           element={<CharacterDetailView />}
         />
 
-        <Route
-          path="episodes/details/:id"
-          element={<EpisodeDetail />}
-        />
+        <Route path="episodes/details/:id" element={<EpisodeDetail />} />
       </Route>
     </Routes>
   );

@@ -6,7 +6,6 @@ import { baseConfig } from "./config/baseConfig";
 import { useInfiniteScroll } from "../../shared/hooks/useInfiniteScroll";
 import { NavStatus } from "../episodes/components/NavStatus";
 import { useParams } from "react-router";
-import { SHOW_ALERT_EVENT } from "../../constants/constants";
 import { SkeletonContainer } from "../../shared/components/Skeleton";
 import { TrackBuilder } from "../../shared/utils/TrackBuilder";
 import { useEffect } from "react";
@@ -27,19 +26,27 @@ export const View = () => {
     console.log("🚀 ~ initTracks:", clonedTracks);
   }, [status]);
 
+  const trackEvent = ({ pageParam }: { pageParam: number }) => {
+    const clonedTracks = initTracks.clone();
+    clonedTracks
+      .setPath(`characters/${status}`)
+      .setAdditional("action", pageParam === 1 ? "init_load" : "load_more")
+      .build();
+
+    console.log("🚀 ~ trackEvent ~ clonedTracks:", clonedTracks);
+  };
+
   const { data, isFetching, isError, refetch, fetchNextPage } =
     useInfiniteScroll({
       ...baseConfig,
       status,
+      onTrack: trackEvent,
     });
   const hasData = data && data.length > 0;
 
-  if (isError) {
-    document.dispatchEvent(new Event(SHOW_ALERT_EVENT));
-  }
-
   return (
     <ViewHOC
+      isError={isError}
       messageError="Something went wrong"
       callback={refetch}
       header={

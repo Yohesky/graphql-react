@@ -1,5 +1,4 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { TrackBuilder } from "../utils/TrackBuilder";
 
 interface UseConfigProps {
   queryKey: string[];
@@ -9,6 +8,7 @@ interface UseConfigProps {
   mapper: Function;
   getNextPageParam: Function;
   status?: string;
+  onTrack?: (context: { pageParam: number; status?: string }) => void;
 }
 
 export const useInfiniteScroll = ({
@@ -19,12 +19,8 @@ export const useInfiniteScroll = ({
   getNextPageParam,
   mapper,
   status,
+  onTrack,
 }: UseConfigProps) => {
-  const initTracks = new TrackBuilder(`/characters/${status}`)
-    .setLocation("colombia")
-    .setTime(Date.now())
-    .setView("characters");
-
   const {
     isLoading,
     isError,
@@ -36,12 +32,7 @@ export const useInfiniteScroll = ({
   } = useInfiniteQuery({
     queryKey: [...queryKey, status],
     queryFn: ({ pageParam = 1 }) => {
-      const clonedTracks = initTracks.clone();
-      clonedTracks.setAddiniotalProperty(
-        "action",
-        pageParam === 1 ? "init_load" : "load_more"
-      );
-      console.log("🚀 ~ useInfiniteScroll ~ clonedTracks:", clonedTracks);
+      onTrack?.({ pageParam });
       return queryFn({ pageParam, status });
     },
     staleTime,

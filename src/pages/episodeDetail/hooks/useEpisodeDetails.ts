@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import type { Location, Origin } from "../../../shared/interfaces/Character";
 import { clientFactory } from "../../../shared/utils/clientFactory";
 import type { Episode } from "../../../shared/interfaces/Episode";
+import { getCharacterId } from "../../../shared/utils/getCharacterId";
+
 const BASE_IMAGE = "https://rickandmortyapi.com/api/character/avatar";
 //SEGREGATION INTERFACE
 interface EpisodeResponseAxios extends Omit<Episode, "characters"> {
@@ -10,11 +12,6 @@ interface EpisodeResponseAxios extends Omit<Episode, "characters"> {
   air_date: string;
   characters: string[];
 }
-
-const createImage = (characterUrl: string): string => {
-  const parts = characterUrl.split("/");
-  return parts[parts.length - 1];
-};
 
 export const useEpisodeDetails = (episodeId: string) => {
   const httpClient = clientFactory["axios-client"];
@@ -27,7 +24,7 @@ export const useEpisodeDetails = (episodeId: string) => {
       return {
         ...data,
         actors: data.characters.map(
-          (character) => `${BASE_IMAGE}/${createImage(character)}.jpeg`
+          (character) => `${BASE_IMAGE}/${getCharacterId(character)}.jpeg`
         ),
         date: data.air_date,
       };
@@ -38,7 +35,7 @@ export const useEpisodeDetails = (episodeId: string) => {
     isLoading,
     isError,
     error,
-    data,
+    data: data!,
     isFetching,
     refetch,
   };
